@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/deepak-jacob/hana/issues"
   },
-  "homepage": "https://github.com/deepak-jacob/hana#readme"
+  "homepage": "https://github.com/deepak-jacob/hana#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
