@@ -4,6 +4,7 @@
   "description": "hana is exporting",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node app.js -d lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,13 @@
   },
   "homepage": "https://github.com/deepak-jacob/hana#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0"
   }
 }
