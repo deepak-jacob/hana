@@ -2,15 +2,19 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
+import rcnsRouter from './routes/rcns';
+
 const app = express();
-const PORT = 5001;
-const MONGO_CONNECT_STRING = 'mongodb://localhost:27017/hana';
+const port = 5001;
+const mongoConnectString = 'mongodb://localhost:27017/hana';
 
-//connect mongodb
-mongoose.connect(MONGO_CONNECT_STRING);
+mongoose.connect(mongoConnectString);
 
-//config app
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-console.log('EOAPP');
+app.use('/rcnuts', rcnsRouter);
+
+app.listen(port);
+
+console.log('Server running !!');
