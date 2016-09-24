@@ -6,4 +6,4 @@ router.get('/', (req, res, next) => {
   res.json({ message: 'api rcnuts' });
 });
 
-module.exports = router;
+export default router;

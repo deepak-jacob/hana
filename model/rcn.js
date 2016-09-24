@@ -5,4 +5,4 @@ const RcnSchema   = new Schema({
     name: String
 });
 
-module.exports = mongoose.model('Rcn', RcnSchema);
+export default mongoose.model('Rcn', RcnSchema);
