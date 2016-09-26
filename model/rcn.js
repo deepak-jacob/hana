@@ -8,7 +8,7 @@ const RcnSchema   = new Schema({
     quantity: String,
     price: String,
     port: String,
-    arrivalDate: Date
+    arrivalDate: Date,
     email: String,
     contact number: String,
     company: String,
