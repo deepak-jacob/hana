@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
+
 const RcnSchema   = new Schema({
     mark: String,
     outurn: String,
@@ -10,7 +11,7 @@ const RcnSchema   = new Schema({
     port: String,
     arrivalDate: Date,
     email: String,
-    contact number: String,
+    phone: String,
     company: String,
 });
 
