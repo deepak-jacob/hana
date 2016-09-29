@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-polyfill": "^6.16.0",
-    "babel-preset-latest": "^6.16.0"
+    "babel-preset-latest": "^6.16.0",
+    "webpack": "^1.13.2"
   }
 }
