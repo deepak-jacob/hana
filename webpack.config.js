@@ -5,10 +5,10 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  //devtool: 'eval-source-map',
+  devtool: 'eval-source-map',
   entry: [
-    //'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'app/main.js')
+    'webpack-hot-middleware/client?reload=true',
+    path.join(__dirname, 'src/main.js')
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -17,7 +17,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.tpl.html',
+      template: 'src/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
     }),
