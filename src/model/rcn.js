@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -15,4 +15,4 @@ const RcnSchema   = new Schema({
     company: String,
 });
 
-export default mongoose.model('Rcn', RcnSchema);
+module.exports = mongoose.model('Rcn', RcnSchema);

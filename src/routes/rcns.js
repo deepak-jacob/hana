@@ -1,5 +1,5 @@
-import express from 'express';
-import Rcn from '../model/rcn'
+const express = require('express');
+const Rcn = require('../model/rcn');
 
 const router = express.Router();
 
@@ -34,4 +34,4 @@ router.post('/', (req, res) => {
     });
 });
 
-export default router;
+module.exports = router;
