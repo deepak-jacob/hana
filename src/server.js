@@ -13,6 +13,11 @@ const app = express();
 const port = 5001;
 const mongoConnectString = 'mongodb://localhost:27017/hana';
 
+mongoose.connect(mongoConnectString);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use('/rcnuts', rcnsRouter);
+
 if(isDeveloping) {
   const compiler = webpack(webpackConfig);
   const middleware = webpackMiddleware(compiler, {
@@ -30,18 +35,12 @@ if(isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('*', function response(req, res) {
-    //res.write(middleware.fileSystem.readFileSync(path.join(__dirname, '../index.html')));
+    //middleware.fileSystem.readFileSync(path.join(__dirname, '../index.html'))
+    //compiler.outputFileSystem.readFileSync(path.join(__dirname, '../index.html'))
+    res.write('Nf');
     res.end();
   });
 }
 
-mongoose.connect(mongoConnectString);
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-app.use('/rcnuts', rcnsRouter);
-
 app.listen(port);
-
 console.log('Server running !!');

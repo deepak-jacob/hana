@@ -33,6 +33,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
     "html-webpack-plugin": "^2.22.0",
+    "nodemon": "^1.11.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.0"
