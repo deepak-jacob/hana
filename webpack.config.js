@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'src/main.js')
+    path.join(__dirname, 'src/main.jsx')
   ],
   output: {
     path: path.join(__dirname),
@@ -30,12 +30,11 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        "presets": ["react", "es2015"]
-      }
+      loaders: ['babel', 'eslint'],
+      test: /\.jsx?$/,
+      include: [
+        path.resolve(__dirname, "src"),
+      ]
     }, {
       test: /\.json?$/,
       loader: 'json'
