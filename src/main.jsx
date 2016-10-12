@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NutsList from './components/NutsList.jsx';
 
 ReactDOM.render(
-  <h1>hanna with eslint</h1>,
+  <NutsList />,
   document.getElementById('root')
 );
