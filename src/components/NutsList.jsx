@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 
-const AttrToDisplay = {
+const keysToDisplay = {
   arrivalDate: 'Arrival Date',
   company: 'Company',
   email: 'E-mail',
@@ -12,6 +12,16 @@ const AttrToDisplay = {
   port: 'Port',
   price: 'Price',
   quantity: 'Quantity'
+};
+
+const styleTable = {
+  border: '1px solid green',
+  borderCollapse: 'collapse'
+};
+
+const styleTd = {
+  border: '1px solid green'
+
 };
 
 class NutsList extends Component {
@@ -31,20 +41,18 @@ class NutsList extends Component {
 
   render() {
     return (
-      <table><thead>
-      <tr>
-          {_.map(AttrToDisplay, (val, key) => {
-            return <th>{val}</th>
-          })}
-      </tr>
-      </thead><tbody>
-      {this.state.dataArray.map(item => (
+      <table style={styleTable}>
+      <thead>
         <tr>
-          {_.map(AttrToDisplay, (val, key) => {
-            return <td>{item[key]}</td>
-          })}
+            { _.map(keysToDisplay, (val, key) => <th style={styleTd}>{val}</th> )}
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {this.state.dataArray.map(item => (
+          <tr>
+            {_.map(keysToDisplay, (val, key) => <td style={styleTd}>{item[key]}</td> )}
+          </tr>
+        ))}
       </tbody>
       </table>
     );
