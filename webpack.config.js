@@ -30,7 +30,8 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      loaders: ['babel', 'eslint'],
+      //loaders: ['babel', 'eslint'],
+      loaders: ['babel'],
       test: /\.jsx?$/,
       include: [
         path.resolve(__dirname, "src"),
