@@ -49,7 +49,7 @@ class NutsList extends Component {
       </thead>
       <tbody>
         {this.state.dataArray.map(item => (
-          <tr>
+          <tr key={item._id}>
             {_.map(keysToDisplay, (val, key) => <td style={styleTd}>{item[key]}</td> )}
           </tr>
         ))}
