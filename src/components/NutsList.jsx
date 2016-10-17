@@ -21,7 +21,6 @@ const styleTable = {
 
 const styleTd = {
   border: '1px solid green'
-
 };
 
 class NutsList extends Component {
