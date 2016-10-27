@@ -31,11 +31,7 @@ class NutsList extends Component {
   }
 
   componentDidMount() {
-    fetch('/rcnuts')
-      .then((response) => (response.json()))
-      .then((json) => {
-        this.setState({dataArray: json})
-      });
+    
   }
 
   render() {
