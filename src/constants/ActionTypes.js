@@ -1,0 +1,1 @@
+export const RECEIVE_NUTS = 'RECEIVE_NUTS'
