@@ -1,15 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router'
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+
 import App from './components/App.jsx';
-import NutsList from './components/NutsList.jsx';
-import NutsAdd from './components/NutsAdd.jsx';
+import NutsList from './components/NutsList.jsx'
+import NutsAdd from './components/NutsAdd.jsx'
+import reducers from './reducers'
+import { getAllNuts } from './actions'
+
+const store = createStore(
+  combineReducers({
+    ...reducers,
+    routing: routerReducer
+  })
+);
+
+store.dispatch(getAllNuts())
+
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render((
-    <Router history={hashHistory}>
+  <Provider store={store}>
+    <Router history={history}>
       <Route path="/" component={App}>
-        <Route path="/nutsList" component={NutsList} />
-        <Route path="/nutsAdd" component={NutsAdd} />
+      <Route path="/nutsList" component={NutsList} />
+      //  <Route path="/nutsAdd" component={NutsAdd} />
       </Route>
     </Router>
+  </Provider>
 ), document.getElementById('root'));
