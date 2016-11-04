@@ -1,3 +1,4 @@
+/*
 import React, { Component } from 'react';
 import _ from 'lodash';
 
@@ -31,7 +32,7 @@ class NutsList extends Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   render() {
@@ -55,3 +56,13 @@ class NutsList extends Component {
 }
 
 module.exports = NutsList;
+*/
+import React, { PropTypes } from 'react'
+
+const NutsList = ({ nutsList }) => (
+  <div> tset
+    {JSON.stringify(nutsList)}
+  </div>
+)
+
+export default NutsList
