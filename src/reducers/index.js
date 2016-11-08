@@ -1,10 +1,3 @@
-const nutsReduce = (state = [], action) => {
-  switch (action.type) {
-    case 'RECEIVE_NUTS':
-      return [...action.nuts]
-    default:
-      return state
-  }
-}
+import nuts from './nuts'
 
-export default nutsReduce
+export default nuts
