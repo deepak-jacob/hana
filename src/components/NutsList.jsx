@@ -1,4 +1,3 @@
-/*
 import React, { Component } from 'react';
 import _ from 'lodash';
 
@@ -24,45 +23,21 @@ const styleTd = {
   border: '1px solid green'
 };
 
-class NutsList extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {dataArray: []};
-  }
-
-  componentDidMount() {
-
-  }
-
-  render() {
-    return (
-      <table style={styleTable}>
-      <thead>
-        <tr>
-            { _.map(keysToDisplay, (val, key) => <th style={styleTd}>{val}</th> )}
-        </tr>
-      </thead>
-      <tbody>
-        {this.state.dataArray.map(item => (
-          <tr key={item._id}>
-            {_.map(keysToDisplay, (val, key) => <td style={styleTd}>{item[key]}</td> )}
-          </tr>
-        ))}
-      </tbody>
-      </table>
-    );
-  }
-}
-
-module.exports = NutsList;
-*/
-import React, { PropTypes } from 'react'
-
-const NutsList = ({ nutsList }) => (
-  <div> tset
-    {JSON.stringify(nutsList)}
-  </div>
+export const NutsList = ({ nutsList }) => (
+  <table style={styleTable}>
+  <thead>
+    <tr>
+        { _.map(keysToDisplay, (val, key) => <th style={styleTd}>{val}</th> )}
+    </tr>
+  </thead>
+  <tbody>
+    {nutsList.map(item => (
+      <tr key={item._id}>
+        {_.map(keysToDisplay, (val, key) => <td style={styleTd}>{item[key]}</td> )}
+      </tr>
+    ))}
+  </tbody>
+  </table>
 )
 
-export default NutsList
+module.exports = NutsList;
