@@ -1,15 +1,10 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import NutsList from '../components/NutsList.jsx'
-
-const NutsListContainer = ({ nutsList }) => (
-  <div>
-    <NutsList nutsList={nutsList} />
-  </div>
-)
+import { getnuts } from '../reducers/nuts'
 
 const mapStateToProps = store => ({
-  nutsList: store
+  nutsList: getnuts(store)
 })
 
-export default connect(mapStateToProps)(NutsListContainer)
+export default connect(mapStateToProps)(NutsList)
