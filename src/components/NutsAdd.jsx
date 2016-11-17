@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
 import _ from 'lodash';
 
 const keysToDisplay = {
@@ -14,48 +15,20 @@ const keysToDisplay = {
   quantity: 'Quantity'
 };
 
-class NutsAdd extends Component {
+let NutsAddForm = ({ saveNut }) => (
+    <form>
+    { _.map(keysToDisplay, (val, key) => {
+      return <Field key={key} type="text" placeholder={val} style={{display:'block', margin: '5px 0'}}
+        component="input"
+        name={key}
+        />
+    }) }
+    <button type="button" onClick={saveNut}> Submit</button>
+    </form>
+)
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+NutsAddForm = reduxForm({
+  form: 'NutsAddForm'
+})(NutsAddForm)
 
-  handleChange(name, e) {
-    let change = {};
-    change[name] = e.target.value;
-    this.setState(change);
-  }
-
-  handleSubmit(e) {
-
-    let formData = Object.keys(this.state).map((k) => {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(this.state[k])
-    }).join('&');
-
-    fetch('/rcnuts', {
-      method: 'POST',
-      body: formData,
-      headers: {
-       'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-       'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-       }
-    });
-
-  }
-
-  render() {
-    return (
-      <div>
-      { _.map(keysToDisplay, (val, key) => {
-        return <input type="text" placeholder={val} style={{display:'block', margin: '5px 0'}}
-          value={this.state[key]}
-          onChange={this.handleChange.bind(this, key)} />
-      }) }
-      <button onClick={this.handleSubmit.bind(this)}> Submit</button>
-      </div>
-    );
-  }
-}
-
-module.exports = NutsAdd;
+export default NutsAddForm;
