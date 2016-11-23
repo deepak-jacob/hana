@@ -14,6 +14,8 @@ import NutsAdd from './containers/NutsAddContainer.jsx'
 import reducers from './reducers'
 import { getAllNuts } from './actions'
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 const middleware = [ thunk ];
 
 const store = createStore(
@@ -30,6 +32,7 @@ store.dispatch(getAllNuts())
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render((
+  <MuiThemeProvider>
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
@@ -38,4 +41,5 @@ ReactDOM.render((
       </Route>
     </Router>
   </Provider>
+  </MuiThemeProvider>
 ), document.getElementById('root'));
