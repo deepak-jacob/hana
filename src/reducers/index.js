@@ -1,3 +1,10 @@
-import nuts from './nuts'
+import { combineReducers } from 'redux';
+import nuts from './nuts';
+import env from './env';
 
-export default nuts
+const rootReducer = combineReducers({
+  nuts,
+  env
+});
+
+export default rootReducer

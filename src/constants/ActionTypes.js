@@ -1,1 +1,2 @@
 export const RECEIVE_NUTS = 'RECEIVE_NUTS'
+export const APP_DRAWER_TOGGLE = 'APP_DRAWER_TOGGLE'

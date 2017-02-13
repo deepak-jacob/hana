@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 const keysToDisplay = {
   arrivalDate: 'Arrival Date',
-  company: 'Company',
-  email: 'E-mail',
+  //company: 'Company',
+  //email: 'E-mail',
   mark: 'Mark',
   nutCount: 'Nut Count',
   outurn: 'Outurn',
-  phone: 'Phone',
+  //phone: 'Phone',
   port: 'Port',
   price: 'Price',
   quantity: 'Quantity'
@@ -24,20 +25,20 @@ const styleTd = {
 };
 
 export const NutsList = ({ nutsList }) => (
-  <table style={styleTable}>
-  <thead>
-    <tr>
-        { _.map(keysToDisplay, (val, key) => <th style={styleTd}>{val}</th> )}
-    </tr>
-  </thead>
-  <tbody>
+  <Table>
+  <TableHeader>
+    <TableRow>
+        { _.map(keysToDisplay, (val, key) => <TableHeaderColumn>{val}</TableHeaderColumn> )}
+    </TableRow>
+  </TableHeader>
+  <TableBody>
     {nutsList.map(item => (
-      <tr key={item._id}>
-        {_.map(keysToDisplay, (val, key) => <td style={styleTd}>{item[key]}</td> )}
-      </tr>
+      <TableRow key={item._id}>
+        {_.map(keysToDisplay, (val, key) => <TableRowColumn>{item[key]}</TableRowColumn> )}
+      </TableRow>
     ))}
-  </tbody>
-  </table>
+  </TableBody>
+  </Table>
 )
 
 module.exports = NutsList;

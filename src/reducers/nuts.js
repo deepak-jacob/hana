@@ -9,7 +9,4 @@ const nuts = (state = [], action) => {
   }
 }
 
-export default nuts
-
-export const getnuts = (state) =>
-  state.reducers
+export default nuts;

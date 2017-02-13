@@ -5,7 +5,7 @@ const receiveNuts = nuts => ({
   nuts: nuts
 })
 
-export const getAllNuts = () => dispatch => {
+export const fetchAllNuts = () => dispatch => {
   fetch('/rcnuts')
     .then((response) => (response.json()))
     .then((json) => {
@@ -29,3 +29,5 @@ export const saveNut = () => (dispatch, getState) => {
   });
 
 }
+
+export const getNutsFromState = state => state.hanaReducers.nuts

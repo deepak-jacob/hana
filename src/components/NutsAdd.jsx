@@ -1,29 +1,45 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import _ from 'lodash';
+import {
+  Checkbox,
+  RadioButtonGroup,
+  SelectField,
+  TextField,
+  Toggle,
+  DatePicker
+} from 'redux-form-material-ui';
+import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const keysToDisplay = {
-  arrivalDate: 'Arrival Date',
-  company: 'Company',
-  email: 'E-mail',
-  mark: 'Mark',
-  nutCount: 'Nut Count',
-  outurn: 'Outurn',
-  phone: 'Phone',
-  port: 'Port',
-  price: 'Price',
-  quantity: 'Quantity'
+  company: { label: 'Company', component: TextField },
+  email: { label: 'E-mail', component: TextField },
+  phone: { label: 'Phone', component: TextField },
+  port: { label: 'Port', component: TextField },
+  arrivalDate: { label: 'Arrival Date', component: DatePicker },
+  price: { label: 'Price', component: TextField },
+  quantity: { label: 'Quantity', component: TextField },
+  mark: { label: 'Mark', component: TextField },
+  nutCount: { label: 'Nut Count', component: TextField },
+  outurn: { label: 'Outurn', component: TextField }
+};
+
+const styleWrapperDiv = {
+  margin: '10px',
+  padding: '10px'
 };
 
 let NutsAddForm = ({ saveNut }) => (
-    <form>
-    { _.map(keysToDisplay, (val, key) => {
-      return <Field key={key} type="text" placeholder={val} style={{display:'block', margin: '5px 0'}}
-        component="input"
-        name={key}
-        />
-    }) }
-    <button type="button" onClick={saveNut}> Submit</button>
+    <form style={styleWrapperDiv}>
+        { _.map(keysToDisplay, (val, key) => {
+          return <div><Field key={key} component={val.component} hintText={val.label}
+            name={key}
+            /> </div>
+        }) }
+      <br />
+      <RaisedButton label="Submit" primary={true} onClick={saveNut} />
     </form>
 )
 
