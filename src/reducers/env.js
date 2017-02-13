@@ -7,7 +7,7 @@ const initialState = {
 const env = (state = initialState, action) => {
   switch (action.type) {
     case types.APP_DRAWER_TOGGLE:
-      return {...state, appDrawerOpen: action.appDrawerOpen}
+      return {...state, appDrawerOpen: !state.appDrawerOpen}
     default:
       return state
   }

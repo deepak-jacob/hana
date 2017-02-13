@@ -30,4 +30,4 @@ export const saveNut = () => (dispatch, getState) => {
 
 }
 
-export const getNutsFromState = state => state.hanaReducers.nuts
+export const getNutsFromState = state => { return state.hanaReducers.nuts; }
