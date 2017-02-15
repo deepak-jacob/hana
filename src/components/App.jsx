@@ -26,9 +26,3 @@ export const App = ({appDrawerOpen, handleToggle, children}) => (
 );
 
 module.exports = App;
-//onLeftIconButtonTouchTap={this.handleToggle}
-//onRequestChange={(open) => this.setState({open})}
-
-//this.state = {open: false};
-//componentWillMount = () => { injectTapEventPlugin(); }
-//handleToggle = () => this.setState({open: !this.state.open})
