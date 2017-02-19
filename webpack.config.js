@@ -21,24 +21,24 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })
   ],
   module: {
     loaders: [{
-      //loaders: ['babel', 'eslint'],
-      loaders: ['babel'],
+      loaders: ['babel-loader', 'eslint-loader'],
+      //loaders: ['babel-loader'],
       test: /\.jsx?$/,
       include: [
         path.resolve(__dirname, "src"),
       ]
     }, {
       test: /\.json?$/,
-      loader: 'json'
+      loader: 'json-loader'
     }, {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
