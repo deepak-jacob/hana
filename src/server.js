@@ -43,4 +43,5 @@ if (isDeveloping) {
 
 app.listen(port);
 
-console.log('Server running !!');
+/* eslint-disable no-console */
+console.log(`Server running on port ${port} !!`);

@@ -15,7 +15,6 @@ import NutsAddContainer from './containers/NutsAddContainer';
 import hanaReducers from './reducers';
 import { fetchAllNuts } from './actions/NutsActions';
 
-
 const middleware = [thunk];
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
