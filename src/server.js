@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const path = require('path');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -18,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/rcnuts', rcnsRouter);
 
-if(isDeveloping) {
+if (isDeveloping) {
   const compiler = webpack(webpackConfig);
   const middleware = webpackMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
@@ -29,18 +28,19 @@ if(isDeveloping) {
       timings: true,
       chunks: false,
       chunkModules: false,
-      modules: false
-    }
+      modules: false,
+    },
   });
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.get('*', function response(req, res) {
-    //middleware.fileSystem.readFileSync(path.join(__dirname, '../index.html'))
-    //compiler.outputFileSystem.readFileSync(path.join(__dirname, '../index.html'))
+  app.get('*', (req, res) => {
+    // middleware.fileSystem.readFileSync(path.join(__dirname, '../index.html'))
+    // compiler.outputFileSystem.readFileSync(path.join(__dirname, '../index.html'))
     res.write('Nf');
     res.end();
   });
 }
 
 app.listen(port);
+
 console.log('Server running !!');

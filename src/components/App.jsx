@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import Navigation from './Navigation.jsx';
+import Navigation from './Navigation';
 
-export const App = ({appDrawerOpen, handleToggle, children}) => (
+const App = ({ appDrawerOpen, handleToggle, children }) => (
   <div>
 
     <AppBar
-     title="HANA EXPORTS"
-     iconClassNameRight="muidocs-icon-navigation-expand-more"
-     onLeftIconButtonTouchTap={handleToggle}
+      title="HANA EXPORTS"
+      iconClassNameRight="muidocs-icon-navigation-expand-more"
+      onLeftIconButtonTouchTap={handleToggle}
     />
 
     <Drawer
@@ -25,4 +25,10 @@ export const App = ({appDrawerOpen, handleToggle, children}) => (
   </div>
 );
 
-module.exports = App;
+App.propTypes = {
+  appDrawerOpen: React.PropTypes.bool.isRequired,
+  handleToggle: React.PropTypes.func.isRequired,
+  children: React.PropTypes.element.isRequired,
+};
+
+export default App;

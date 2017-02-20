@@ -1,12 +1,12 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
 
 const nuts = (state = [], action) => {
   switch (action.type) {
     case types.RECEIVE_NUTS:
-      return [...action.nuts]
+      return [...action.nuts];
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default nuts;

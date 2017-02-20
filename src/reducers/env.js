@@ -1,16 +1,16 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  appDrawerOpen: false
+  appDrawerOpen: false,
 };
 
 const env = (state = initialState, action) => {
   switch (action.type) {
     case types.APP_DRAWER_TOGGLE:
-      return {...state, appDrawerOpen: !state.appDrawerOpen}
+      return { ...state, appDrawerOpen: !state.appDrawerOpen };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default env
+export default env;

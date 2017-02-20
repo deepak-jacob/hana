@@ -4,7 +4,7 @@ import env from './env';
 
 const rootReducer = combineReducers({
   nuts,
-  env
+  env,
 });
 
-export default rootReducer
+export default rootReducer;

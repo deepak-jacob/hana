@@ -1,33 +1,33 @@
-import * as types from '../constants/ActionTypes'
+import fetch from 'isomorphic-fetch';
+import * as types from '../constants/ActionTypes';
 
 const receiveNuts = nuts => ({
   type: types.RECEIVE_NUTS,
-  nuts: nuts
-})
+  nuts,
+});
 
-export const fetchAllNuts = () => dispatch => {
+export const fetchAllNuts = () => (dispatch) => {
   fetch('/rcnuts')
-    .then((response) => (response.json()))
+    .then(response => (response.json()))
     .then((json) => {
-      dispatch(receiveNuts(json))
+      dispatch(receiveNuts(json));
     });
-}
+};
 
 export const saveNut = () => (dispatch, getState) => {
-  const { form: {NutsAddForm:{values: nutsFormData }} } = getState()
-  const formData = Object.keys(nutsFormData).map((k) => {
-      return encodeURIComponent(k) + '=' + encodeURIComponent(nutsFormData[k])
-  }).join('&');
+  const { form: { NutsAddForm: { values: nutsFormData } } } = getState();
+  const formData = Object.keys(nutsFormData)
+    .map(k => `${encodeURIComponent(k)} = ${encodeURIComponent(nutsFormData[k])}`)
+    .join('&');
 
   fetch('/rcnuts', {
     method: 'POST',
     body: formData,
     headers: {
-     'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-     }
+      Accept: 'application/json, application/xml, text/plain, text/html, *.*',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+    },
   });
+};
 
-}
-
-export const getNutsFromState = state => { return state.hanaReducers.nuts; }
+export const getNutsFromState = state => state.hanaReducers.nuts;

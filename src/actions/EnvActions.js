@@ -1,11 +1,9 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
 
-export const getAppDrawerOpenState = (state) => state.hanaReducers.env.appDrawerOpen;
+export const getAppDrawerOpenState = state => state.hanaReducers.env.appDrawerOpen;
 
-const toggleAppDrawer = appDrawerOpen => ({
-  type: types.APP_DRAWER_TOGGLE
-})
+const toggleAppDrawer = () => ({
+  type: types.APP_DRAWER_TOGGLE,
+});
 
-export const handleToggle = () => (dispatch, getState) => {
-  return dispatch(toggleAppDrawer());
-}
+export const handleToggle = () => dispatch => dispatch(toggleAppDrawer());

@@ -1,44 +1,50 @@
-import React, { Component } from 'react';
+import React from 'react';
 import _ from 'lodash';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 const keysToDisplay = {
   arrivalDate: 'Arrival Date',
-  //company: 'Company',
-  //email: 'E-mail',
+  // company: 'Company',
+  // email: 'E-mail',
   mark: 'Mark',
   nutCount: 'Nut Count',
   outurn: 'Outurn',
-  //phone: 'Phone',
+  // phone: 'Phone',
   port: 'Port',
   price: 'Price',
-  quantity: 'Quantity'
+  quantity: 'Quantity',
 };
 
-const styleTable = {
-  border: '1px solid green',
-  borderCollapse: 'collapse'
-};
-
-const styleTd = {
-  border: '1px solid green'
-};
-
-export const NutsList = ({ nutsList }) => (
+const NutsList = ({ nutsList }) => (
   <Table>
-  <TableHeader>
-    <TableRow>
-        { _.map(keysToDisplay, (val, key) => <TableHeaderColumn>{val}</TableHeaderColumn> )}
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    {nutsList.map(item => (
-      <TableRow key={item._id}>
-        {_.map(keysToDisplay, (val, key) => <TableRowColumn>{item[key]}</TableRowColumn> )}
+    <TableHeader>
+      <TableRow>
+        { _.map(keysToDisplay, val => <TableHeaderColumn>{val}</TableHeaderColumn>) }
       </TableRow>
-    ))}
-  </TableBody>
+    </TableHeader>
+    <TableBody>
+      {nutsList.map(item => (
+        /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
+        <TableRow key={item._id}>
+          {_.map(keysToDisplay, (val, key) => <TableRowColumn>{item[key]}</TableRowColumn>)}
+        </TableRow>
+      ))}
+    </TableBody>
   </Table>
-)
+);
 
-module.exports = NutsList;
+NutsList.propTypes = {
+  nutsList: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      arrivalDate: React.PropTypes.string,
+      mark: React.PropTypes.string,
+      nutCount: React.PropTypes.string,
+      outurn: React.PropTypes.string,
+      port: React.PropTypes.string,
+      price: React.PropTypes.string,
+      quantity: React.PropTypes.string,
+    }),
+  ).isRequired,
+};
+
+export default NutsList;
