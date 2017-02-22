@@ -38,21 +38,24 @@
     "redux-thunk": "^2.2.0",
     "webpack": "*",
     "webpack-dev-middleware": "*",
-    "webpack-hot-middleware": "*"
+    "webpack-hot-middleware": "*",
+    "html-webpack-plugin": "*",
+    "lodash-webpack-plugin": "^0.11.0"
   },
   "devDependencies": {
     "babel-core": "*",
     "babel-loader": "*",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-polyfill": "*",
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-2": "*",
+    "compression-webpack-plugin": "^0.3.2",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-loader": "*",
     "eslint-plugin-import": "*",
     "eslint-plugin-jsx-a11y": "*",
-    "eslint-plugin-react": "*",
-    "html-webpack-plugin": "*"
+    "eslint-plugin-react": "*"
   }
 }
