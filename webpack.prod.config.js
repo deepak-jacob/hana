@@ -19,11 +19,13 @@ module.exports = {
       inject: 'body',
       filename: 'index.html',
     }),
+    /*
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commons',
       filename: 'commons.js',
       //minChunks: 1,
     }),
+    */
     new LodashModuleReplacementPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     // new webpack.optimize.UglifyJsPlugin(),
