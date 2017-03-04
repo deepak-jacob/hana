@@ -17,7 +17,7 @@ export const fetchAllNuts = () => (dispatch) => {
 export const saveNut = () => (dispatch, getState) => {
   const { form: { NutsAddForm: { values: nutsFormData } } } = getState();
   const formData = Object.keys(nutsFormData)
-    .map(k => `${encodeURIComponent(k)} = ${encodeURIComponent(nutsFormData[k])}`)
+    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(nutsFormData[k])}`)
     .join('&');
 
   fetch('/rcnuts', {
