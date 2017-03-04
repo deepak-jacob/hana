@@ -12,7 +12,7 @@ const keysToDisplay = {
   // phone: 'Phone',
   port: 'Port',
   price: 'Price',
-  quantity: 'Quantity',
+  //quantity: 'Quantity',
 };
 
 const NutsList = ({ nutsList }) => (
