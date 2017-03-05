@@ -25,24 +25,33 @@ const styleWrapperDiv = {
   padding: '10px',
 };
 
-const NutsAddForm = ({ saveNut }) => (
-  <form style={styleWrapperDiv}>
+const required = value => (value == null ? 'Required' : undefined);
+
+const NutsAddForm = ({ saveNut, handleSubmit }) => (
+  <form style={styleWrapperDiv} onSubmit={handleSubmit(saveNut)}>
     { _.map(
           keysToDisplay,
           (val, key) =>
             <div>
-              <Field key={key} component={val.component} hintText={val.label} name={key} />
+              <Field
+                key={key}
+                component={val.component}
+                hintText={val.label}
+                name={key}
+                validate={required}
+              />
             </div>
           ,
         )
     }
     <br />
-    <RaisedButton label="Submit" primary onClick={saveNut} />
+    <RaisedButton type="submit" label="Submit" primary />
   </form>
 );
 
 NutsAddForm.propTypes = {
   saveNut: React.PropTypes.func.isRequired,
+  handleSubmit: React.PropTypes.func.isRequired,
 };
 
 export default reduxForm({

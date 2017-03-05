@@ -14,8 +14,8 @@ export const fetchAllNuts = () => (dispatch) => {
     });
 };
 
-export const saveNut = () => (dispatch, getState) => {
-  const { form: { NutsAddForm: { values: nutsFormData } } } = getState();
+export const saveNut = values => () => {
+  const nutsFormData = values;
   const formData = Object.keys(nutsFormData)
     .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(nutsFormData[k])}`)
     .join('&');

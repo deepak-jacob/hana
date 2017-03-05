@@ -17,7 +17,7 @@ const App = ({ appDrawerOpen, handleToggle, children }) => (
       open={appDrawerOpen}
       onRequestChange={handleToggle}
     >
-      <Navigation />
+      <Navigation handleToggle={handleToggle} />
     </Drawer>
 
     {children}

@@ -10,20 +10,33 @@ const styleLink = {
   textDecoration: 'none',
 };
 
-const Navigation = () => (
+const Navigation = ({ handleToggle }) => (
   <div>
     <List>
-      <ListItem leftIcon={<HomeIcon />}>
-        <Link key="navHome" style={styleLink} to="/">Home</Link>
-      </ListItem>
-      <ListItem leftIcon={<ViewListIcon />}>
-        <Link key="navNutsList" style={styleLink} to="/nutsList">Nuts List</Link>
-      </ListItem>
-      <ListItem leftIcon={<NoteAdd />}>
-        <Link key="navNutsAdd" style={styleLink} to="/nutsAdd">Nuts Add</Link>
-      </ListItem>
+      <ListItem
+        leftIcon={<HomeIcon />}
+        primaryText="Home"
+        onTouchTap={handleToggle}
+        containerElement={<Link key="navHome" style={styleLink} to="/" />}
+      />
+      <ListItem
+        leftIcon={<ViewListIcon />}
+        primaryText="Nuts List"
+        onTouchTap={handleToggle}
+        containerElement={<Link key="navNutsList" style={styleLink} to="/nutsList" />}
+      />
+      <ListItem
+        leftIcon={<NoteAdd />}
+        primaryText="Nuts Add"
+        onTouchTap={handleToggle}
+        containerElement={<Link key="navNutsAdd" style={styleLink} to="/nutsAdd" />}
+      />
     </List>
   </div>
 );
+
+Navigation.propTypes = {
+  handleToggle: React.PropTypes.func.isRequired,
+};
 
 export default Navigation;
