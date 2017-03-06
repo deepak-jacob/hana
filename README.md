@@ -1,11 +1,11 @@
 # hana
 
-Hana is a full stack Rect redux app for inventory management.
+Hana is a full stack React redux app for inventory management.
 
 #### Stack
 
 - React
 - Redux
-- Webpack (ES6)
+- Webpack
 - Express
 - Mongodb
