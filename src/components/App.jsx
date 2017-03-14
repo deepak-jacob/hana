@@ -1,6 +1,8 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import { Link } from 'react-router';
+import FlatButton from 'material-ui/FlatButton';
 import Navigation from './Navigation';
 
 const App = ({ appDrawerOpen, handleToggle, children }) => (
@@ -8,8 +10,11 @@ const App = ({ appDrawerOpen, handleToggle, children }) => (
 
     <AppBar
       title="HANA EXPORTS"
-      iconClassNameRight="muidocs-icon-navigation-expand-more"
       onLeftIconButtonTouchTap={handleToggle}
+      iconElementRight={<FlatButton
+        label="Login"
+        containerElement={<Link key="navNutsAdd" to="/login" />}
+      />}
     />
 
     <Drawer

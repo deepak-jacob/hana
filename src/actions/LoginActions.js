@@ -5,7 +5,9 @@ export const login = formValues => () => {
     .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(formValues[k])}`)
     .join('&');
 
-  fetch('/rcnuts', {
+  console.log(formData); // eslint-disable-line
+
+  fetch('/rcnuts404', {
     method: 'POST',
     body: formData,
     headers: {

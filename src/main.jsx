@@ -12,6 +12,7 @@ import App from './containers/AppContainer';
 import Home from './components/Home';
 import NutsListContainer from './containers/NutsListContainer';
 import NutsAddContainer from './containers/NutsAddContainer';
+import LoginContainer from './containers/LoginContainer';
 import hanaReducers from './reducers';
 import { fetchAllNuts } from './actions/NutsActions';
 
@@ -50,6 +51,7 @@ ReactDOM.render((
           <Route path="/" component={Home} />
           <Route path="/nutsList" component={NutsListContainer} />
           <Route path="/nutsAdd" component={NutsAddContainer} />
+          <Route path="/login" component={LoginContainer} />
         </Route>
       </Router>
     </Provider>
