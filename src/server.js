@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -15,6 +18,7 @@ const mongoConnectString = 'mongodb://localhost:27017/hana';
 mongoose.connect(mongoConnectString);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 app.use('/rcnuts', rcnsRouter);
 
 if (isDeveloping) {
