@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'src/main.jsx'),
+    path.join(__dirname, 'client/main.jsx'),
   ],
   output: {
     path: path.join(__dirname),
@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.tpl.html',
+      template: 'client/index.tpl.html',
       inject: 'body',
       filename: 'index.html',
     }),
@@ -32,7 +32,7 @@ module.exports = {
       // loaders: ['babel-loader'],
       test: /\.jsx?$/,
       include: [
-        path.resolve(__dirname, 'src'),
+        path.resolve(__dirname, 'client'),
       ],
     }, {
       test: /\.json?$/,
