@@ -7,13 +7,14 @@ const mongoose = require('mongoose');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const appConfig = require('./config/main.js');
 const webpackConfig = require('../webpack.config');
 const rcnsRouter = require('./routes/rcns');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const app = express();
 const port = 5001;
-const mongoConnectString = 'mongodb://localhost:27017/hana';
+const mongoConnectString = appConfig.database;
 
 mongoose.connect(mongoConnectString);
 app.use(bodyParser.urlencoded({ extended: true }));
