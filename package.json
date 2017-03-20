@@ -62,6 +62,9 @@
     "eslint-loader": "*",
     "eslint-plugin-import": "*",
     "eslint-plugin-jsx-a11y": "*",
-    "eslint-plugin-react": "*"
+    "eslint-plugin-react": "*",
+    "chai": "*",
+    "mocha": "*",
+    "chai-http": "*"
   }
 }
