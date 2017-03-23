@@ -50,3 +50,5 @@ app.listen(port);
 
 /* eslint-disable no-console */
 console.log(`Server running on port ${port} !!`);
+
+module.exports = app;
