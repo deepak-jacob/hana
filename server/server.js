@@ -16,6 +16,7 @@ const app = express();
 const port = 5001;
 const mongoConnectString = appConfig.database;
 
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoConnectString);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
