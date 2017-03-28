@@ -37,7 +37,7 @@ describe('rcnModel', () => {
         quantity: '100kg',
         price: '35',
         port: 'test port',
-        arrivalDate: '26-10-2016',
+        arrivalDate: '2016-03-25',
         email: 'test email',
         phone: 'test phone',
         company: 'test company',
