@@ -18,7 +18,8 @@ const mongoConnectString = appConfig.database;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoConnectString);
-app.use(bodyParser.urlencoded({ extended: true }));
+app.set('superSecret', appConfig.secret);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use('/rcnuts', rcnsRouter);
