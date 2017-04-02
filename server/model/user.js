@@ -35,7 +35,7 @@ UserSchema.pre('save', (next) => {
   const user = this;
   const SALT_FACTOR = 5;
 
-  if (!user.isModified('password')) return next();
+  //if (!user.isModified('password')) return next();
 
   bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
     if (err) return next(err);
