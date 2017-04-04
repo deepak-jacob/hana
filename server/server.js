@@ -1,28 +1,43 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
 const passport = require('passport');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+const morgan = require('morgan');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const appConfig = require('./config/main.js');
 const webpackConfig = require('../webpack.config');
-const rcnsRouter = require('./routes/rcns');
+
+// connect to the database and load models
+require('./models').connect(appConfig.database);
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const app = express();
 const port = 5001;
-const mongoConnectString = appConfig.database;
 
-mongoose.Promise = global.Promise;
-mongoose.connect(mongoConnectString);
-app.set('superSecret', appConfig.secret);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+
+// load passport strategies
+const localSignupStrategy = require('./passport/local-signup');
+const localLoginStrategy = require('./passport/local-login');
+
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
+
 app.use(morgan('dev'));
-app.use('/rcnuts', rcnsRouter);
+
+// pass the authorization checker middleware
+const authCheckMiddleware = require('./middleware/auth-check');
+app.use('/users', authCheckMiddleware);
+
+// app.use('/rcnuts', rcnsRouter);
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
 
 if (isDeveloping) {
   const compiler = webpack(webpackConfig);

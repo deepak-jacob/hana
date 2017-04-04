@@ -33,6 +33,7 @@
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
@@ -44,6 +45,7 @@
     "redux-form-material-ui": "^4.1.2",
     "redux-saga": "^0.14.3",
     "redux-thunk": "^2.2.0",
+    "validator": "^7.0.0",
     "webpack": "*",
     "webpack-dev-middleware": "*",
     "webpack-hot-middleware": "*"
@@ -56,6 +58,8 @@
     "babel-preset-es2015": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-2": "*",
+    "chai": "*",
+    "chai-http": "*",
     "compression-webpack-plugin": "^0.3.2",
     "eslint": "*",
     "eslint-config-airbnb": "*",
@@ -63,8 +67,6 @@
     "eslint-plugin-import": "*",
     "eslint-plugin-jsx-a11y": "*",
     "eslint-plugin-react": "*",
-    "chai": "*",
-    "mocha": "*",
-    "chai-http": "*"
+    "mocha": "*"
   }
 }
