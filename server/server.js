@@ -7,8 +7,6 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const appConfig = require('./config/main.js');
 const webpackConfig = require('../webpack.config');
-
-// connect to the database and load models
 require('./models').connect(appConfig.database);
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -30,13 +28,16 @@ app.use(morgan('dev'));
 
 // pass the authorization checker middleware
 const authCheckMiddleware = require('./middleware/auth-check');
+
 app.use('/users', authCheckMiddleware);
 
 // app.use('/rcnuts', rcnsRouter);
 const usersRouter = require('./routes/users');
+
 app.use('/users', usersRouter);
 
 const authRoutes = require('./routes/auth');
+
 app.use('/auth', authRoutes);
 
 if (isDeveloping) {
