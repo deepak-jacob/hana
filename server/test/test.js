@@ -4,6 +4,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
 const rcnModel = require('../model/rcn');
+const userModel = require('../models/user');
 
 const should = chai.should();
 chai.use(chaiHttp);
@@ -64,6 +65,31 @@ describe('usermodel', () => {
             res.should.have.status(200);
             res.body.should.be.a('array');
             res.body.length.should.be.eql(0);
+            done();
+          });
+    });
+  });
+});
+
+describe('auth', () => {
+  describe('/POST auth signup', () => {
+    it('it should create a new user', (done) => {
+      userModel.remove({}, () => {
+        done();
+      });
+      const userObj = {
+        email: 'deepak1@deepak.com',
+        password: 'password',
+        fname: 'deepak',
+        lname: 'jacob',
+      };
+      chai.request(server)
+          .post('/auth/signup')
+          .send(userObj)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.should.have.property('success').eql('true');
             done();
           });
     });
