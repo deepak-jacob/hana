@@ -31,7 +31,9 @@ const authCheckMiddleware = require('./middleware/auth-check');
 
 app.use('/users', authCheckMiddleware);
 
-// app.use('/rcnuts', rcnsRouter);
+const rcnsRouter = require('./routes/rcns');
+
+app.use('/rcnuts', rcnsRouter);
 const usersRouter = require('./routes/users');
 
 app.use('/users', usersRouter);

@@ -1,5 +1,5 @@
 const express = require('express');
-const Rcn = require('../model/rcn');
+const Rcn = require('mongoose').model('Rcn');
 
 const router = express.Router();
 
